@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KodlabYT | Kodlama, Projeler ve Teknoloji</title>
+    <!-- Google Search Console doğrulama kodunu buraya ekleyeceksin: -->
+    <!-- <meta name="google-site-verification" content="SENIN_KODUN" /> -->
+    
+    <!-- Google Fonts & FontAwesome İkonları -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-main: #f0f6fc;
+            --text-muted: #8b949e;
+            --accent-green: #238636;
+            --accent-neon: #3fb950;
+            --accent-purple: #a371f7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigasyon Barı */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(22, 27, 34, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-neon);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-neon);
+        }
+
+        /* Hero (Ana Başlık) Bölümü */
+        .hero {
+            text-align: center;
+            padding: 5rem 1rem;
+            background: radial-gradient(circle at top, rgba(63, 185, 80, 0.1) 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--accent-neon), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .btn-yt {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #ff0000;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-yt:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        /* Kartlar / Neler Yapıyoruz */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-neon);
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--accent-neon);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Footer (Alt Bilgi) */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Üst Menü -->
+    <nav>
+        <div class="logo">
+            <i class="fa-solid fa-code"></i> Kodlab<span>YT</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hakkinda">Neler Yapıyoruz?</a></li>
+            <li><a href="#proje">İçerikler</a></li>
+            <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+        </ul>
+    </nav>
+
+    <!-- Ana Karşılama Alanı -->
+    <section class="hero">
+        <h1>Fikirleri Koda, <span>Kodları Projeye</span> Dönüştürüyoruz.</h1>
+        <p>KodlabYT; pratik yazılım projeleri, adım adım kodlama rehberleri ve karmaşık teknolojileri en anlaşılır şekilde açıklayan içeriklerin merkezidir.</p>
+        <a href="https://youtube.com" target="_blank" class="btn-yt">
+            <i class="fa-brands fa-youtube"></i> Kanala Abone Ol
+        </a>
+    </section>
+
+    <!-- İçerik ve Hizmet Kartları -->
+    <div class="container" id="hakkinda">
+        <h2 class="section-title">&lt;Neler_Yapıyoruz/&gt;</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3>Pratik Kodlama</h3>
+                <p>Teoride boğulmadan, doğrudan çalışan gerçek dünya projeleri geliştiriyor ve adım adım kodluyoruz.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+                <h3>Teknoloji İncelemeleri</h3>
+                <p>En güncel yazılım araçlarını, kütüphaneleri ve geliştirici ekosistemlerini derinlemesine inceliyoruz.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3>Sıfırdan İleri Seviyeye</h3>
+                <p>Yazılıma yeni başlayanlardan deneyimli geliştiricilere kadar herkes için anlaşılır rehberler sunuyoruz.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Alt Bilgi -->
+    <footer>
+        <p>&copy; 2026 KodlabYT. Tüm hakları saklıdır. GitHub Pages ile sunulmaktadır.</p>
+    </footer>
+
+</body>
+</html>
